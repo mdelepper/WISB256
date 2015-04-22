@@ -1,2 +1,3 @@
-aak
-blablabfla
+naam = input('Name? ')
+
+print ('Hello, ' + naam +'!')
