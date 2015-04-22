@@ -1,3 +1,4 @@
 naam = input('Name? ')
+hoeveel = input('How many greetings? ')
 
-print ('Hello, ' + naam +'!')
+print (hoeveel + ' x Hello, ' + naam +'!')
