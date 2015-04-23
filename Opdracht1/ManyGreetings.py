@@ -1,3 +1,3 @@
-naam = input('What is your name? ')
+naam = input('Name? ')
 hoeveel = input('How many greetings? ')
 print (hoeveel + ' x Hello, ' + naam +'!')
