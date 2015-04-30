@@ -17,7 +17,7 @@ def drop_needle(L):
 
     x_2 = x_1 + l*math.cos(hoek)
 
-    if x_2 > 1:
+    if x_2 > 1 or x_2 < 0:
         return True
     else:
         return False
@@ -26,4 +26,6 @@ for x in range(N):
     if drop_needle(x) == True:
         h += 1
 
-print(h)
+pi = (2*l*N)/h
+
+print('Pi is ongeveer ' + str(pi))
