@@ -9,7 +9,7 @@ try:
 except:
     print ('Use: python3 estimate_pi.py N L')
 
-assert(l < 1), "L should be smaller than 1"
+assert(l <= 1), "L should be smaller than 1"
 
 def drop_needle(L):
     x_1 = random.random()
