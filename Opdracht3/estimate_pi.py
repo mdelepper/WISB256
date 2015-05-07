@@ -3,9 +3,16 @@ import math
 import sys
 
 try:
+    seed = int(sys.argv[3])
+    random.seed(seed)
+except:
+    print('No seed set, if you want to, then use: python3 estimate_pi.py N L s')
+          
+try:
     N = int(sys.argv[1])                            #aantal experimenten
     l = float(sys.argv[2])                          #lengte van naald
     h = 0                                           #aantal hits
+    
 except:
     print ('Use: python3 estimate_pi.py N L')
     exit()
@@ -26,7 +33,7 @@ def drop_needle(L):
 for x in range(N):
     if drop_needle(x) == True :
         h += 1
-
+        
 pi = (2*l*N)/h
 
 print(str(h) + ' hits in ' + str(N) + ' tries \n' +'Pi = ' + str(pi))
