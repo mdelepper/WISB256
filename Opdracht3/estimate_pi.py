@@ -2,12 +2,10 @@ import random
 import math
 import sys
 
-try:
+if len(sys.argv) != 3:
     seed = int(sys.argv[3])
     random.seed(seed)
-except:
-    print('No seed set, if you want to, then use: python3 estimate_pi.py N L s')
-          
+    
 try:
     N = int(sys.argv[1])                            #aantal experimenten
     l = float(sys.argv[2])                          #lengte van naald
