@@ -21,6 +21,7 @@ def findallRoots(f, a, b, epsilon):
     for j in lijst:
         if f(j[0])*f(j[1]) < 0 :
             roots.append(findRoot(f, j[0], j[1], epsilon))
+    roots.sort()
     return roots
             
     
