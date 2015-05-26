@@ -11,7 +11,7 @@ def findRoot(f, a, b, epsilon):
     return m
 
 
-def findallRoots(f, a, b, epsilon):
+def findAllRoots(f, a, b, epsilon):
     lijst = [[a,b]]
     
     while(numRoots(lijst) < 4 and (lijst[0][1] - lijst[0][0]) > epsilon):
