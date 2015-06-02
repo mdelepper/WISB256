@@ -1,8 +1,6 @@
 import numpy as np
 import scipy as sp
 from scipy.integrate import odeint
-import matplotlib.pyplot as plt
-from mpl_toolkits.mplot3d import Axes3D
 from math import *
 
 class Lorenz:
@@ -33,12 +31,4 @@ class Lorenz:
         y_dot = x*(self.r - z) - y
         z_dot = x*y - self.b*z
         return [x_dot, y_dot, z_dot]
-
-fig = plt.figure()
-ax = fig.gca(projection='3d')
-ax.plot(self.xs, self.ys, self.zs)
-ax.set_xlabel("X Axis")
-ax.set_ylabel("Y Axis")
-ax.set_zlabel("Z Axis")
-ax.set_title("Lorenz Attractor")
-plt.show()
+    
