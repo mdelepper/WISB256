@@ -31,7 +31,7 @@ class Vector:
     def __sub__(self, other):
         w = Vector(len(self.v))
         for i in range(len(self.v)):
-            w.v[i] = self.v[i] + other.v[i]
+            w.v[i] = self.v[i] - other.v[i]
         return w
 
     def scalar(self, alpha):
@@ -56,6 +56,6 @@ def GrammSchmidt(V):
     for i in range(len(lijst)):
         lijst[i] = lijst[i].scalar(1/( float(lijst[i].norm()) ))
         for j in range(i+1, len(lijst)):
-            ratio = float( lijst[i].inner(lijst[j]) ) / float(lijst[j].norm())
-            lijst[j] = lijst[j] - lijst[j].scalar(ratio)
-        return lijst
+            ratio = float( lijst[j].inner(lijst[i]) ) / float(lijst[i].norm())
+            lijst[j] = lijst[j] - lijst[i].scalar(ratio)
+    return lijst
