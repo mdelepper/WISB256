@@ -45,17 +45,18 @@ class Vector:
         res = 0.0
         for i in range(len(self.v)):
             res += self.v[i]*other.v[i]
-        return "{0:.6f}".format(res)
+        return res
 
     def norm(self):
         res = self.inner(self)
-        return "{0:.6f}".format(math.sqrt(float(res)))
+        res = math.sqrt(res)
+        return res
    
 def GrammSchmidt(V):
     lijst = V
     for i in range(len(lijst)):
-        lijst[i] = lijst[i].scalar(1/( float(lijst[i].norm()) ))
+        lijst[i] = lijst[i].scalar(1/lijst[i].norm())
         for j in range(i+1, len(lijst)):
-            ratio = float( lijst[j].inner(lijst[i]) ) / float(lijst[i].norm())
+            ratio = lijst[j].inner(lijst[i]) / lijst[i].norm()
             lijst[j] = lijst[j] - lijst[i].scalar(ratio)
     return lijst
