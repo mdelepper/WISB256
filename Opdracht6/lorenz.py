@@ -1,6 +1,7 @@
 import numpy as np
 import scipy as sp
 from scipy.integrate import odeint
+from scipy import linalg as la
 from math import *
 
 class Lorenz:
@@ -32,3 +33,30 @@ class Lorenz:
         z_dot = x*y - self.b*z
         return [x_dot, y_dot, z_dot]
     
+    def df(u):
+        
+        jacobi = np.array([0]*3,[0]*3,[0]*3)
+        jacobi[0][0] = -1*self.s
+        jacobi[0][1] = self.s
+        jacobi[1][0] = self.r - u[2]
+        jacobi[1][1] = -1
+        jacobi[1][2] = u[0]
+        jacobi[2][0] = u[1]
+        jacobi[2][1] = u[0]
+        jacobi[2][2] = -1*self.b
+
+        return jacobi
+
+    def isStable(u):
+        res = df(u)
+        w = la.eig(res)
+
+        if (w[0] < 0 and w[1] < 0 and w[2] < 0):
+            return True
+        else:
+            return False
+
+
+
+
+        
