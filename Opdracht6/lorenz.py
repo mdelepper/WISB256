@@ -3,6 +3,7 @@ import scipy as sp
 from scipy.integrate import odeint
 from scipy import linalg as la
 from math import *
+import cmath 
 
 class Lorenz:
 
@@ -35,7 +36,7 @@ class Lorenz:
     
     def df(self, u):
         
-        jacobi = np.array([0]*3,[0]*3,[0]*3)
+        jacobi = np.array([[0,0,0],[0,0,0],[0,0,0]])
         jacobi[0][0] = -1*self.s
         jacobi[0][1] = self.s
         jacobi[1][0] = self.r - float(u[2])
@@ -48,10 +49,11 @@ class Lorenz:
         return jacobi
 
     def isStable(self, u):
-        res = df(u)
-        w = la.eig(res)
+        res = self.df(u)
+        w = la.eigvals(res)
 
-        if (float(w[0]) < 0 and float(w[1]) < 0 and float(w[2]) < 0):
+        if (w[0].real<0 and w[1].real<0 and w[2].real<0):
             return True
         else:
             return False
+
