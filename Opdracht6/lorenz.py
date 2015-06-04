@@ -33,7 +33,7 @@ class Lorenz:
         z_dot = x*y - self.b*z
         return [x_dot, y_dot, z_dot]
     
-    def df(u):
+    def df(self, u):
         
         jacobi = np.array([0]*3,[0]*3,[0]*3)
         jacobi[0][0] = -1*self.s
@@ -47,7 +47,7 @@ class Lorenz:
 
         return jacobi
 
-    def isStable(u):
+    def isStable(self, u):
         res = df(u)
         w = la.eig(res)
 
