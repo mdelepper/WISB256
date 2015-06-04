@@ -38,11 +38,11 @@ class Lorenz:
         jacobi = np.array([0]*3,[0]*3,[0]*3)
         jacobi[0][0] = -1*self.s
         jacobi[0][1] = self.s
-        jacobi[1][0] = self.r - u[2]
+        jacobi[1][0] = self.r - float(u[2])
         jacobi[1][1] = -1
-        jacobi[1][2] = u[0]
-        jacobi[2][0] = u[1]
-        jacobi[2][1] = u[0]
+        jacobi[1][2] = float(u[0])
+        jacobi[2][0] = float(u[1])
+        jacobi[2][1] = float(u[0])
         jacobi[2][2] = -1*self.b
 
         return jacobi
@@ -51,12 +51,7 @@ class Lorenz:
         res = df(u)
         w = la.eig(res)
 
-        if (w[0] < 0 and w[1] < 0 and w[2] < 0):
+        if (float(w[0]) < 0 and float(w[1]) < 0 and float(w[2]) < 0):
             return True
         else:
             return False
-
-
-
-
-        
