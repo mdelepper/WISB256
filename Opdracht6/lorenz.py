@@ -7,7 +7,7 @@ import cmath
 
 class Lorenz:
 
-    def __init__(self, coordinaten, sigma = 10.0, rho = 28.0, beta = 8/3):
+    def __init__(self, coordinaten, sigma = 10.0, rho = 28, beta = 8/3):
         self.s = float(sigma)
         self.r = float(rho)
         self.b = float(beta)
@@ -41,10 +41,11 @@ class Lorenz:
         jacobi[0][1] = self.s
         jacobi[1][0] = self.r - float(u[2])
         jacobi[1][1] = -1
-        jacobi[1][2] = float(u[0])
+        jacobi[1][2] = - float(u[0])
         jacobi[2][0] = float(u[1])
         jacobi[2][1] = float(u[0])
         jacobi[2][2] = -1*self.b
+        print(jacobi)
 
         return jacobi
 
